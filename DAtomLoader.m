@@ -221,6 +221,16 @@ static CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloa
     _centerImage = yourImage;
 }
 
+-(void)setAtomColor:(UIColor *)yourColor
+{
+    _atomColor = yourColor;
+}
+
+-(void)setAtomImage:(UIImage *)atomImage
+{
+    _atomImage = atomImage;
+}
+
 -(void)SetCenterImageforAtomView
 {
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
@@ -298,11 +308,28 @@ static CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloa
         ViewAnimation3.layer.cornerRadius = 5.0;
         ViewAnimation4.layer.cornerRadius = 5.0;
     }
-    
-    ViewAnimation1.backgroundColor = [UIColor whiteColor];
-    ViewAnimation2.backgroundColor = [UIColor whiteColor];
-    ViewAnimation3.backgroundColor = [UIColor whiteColor];
-    ViewAnimation4.backgroundColor = [UIColor whiteColor];
+    if(_atomImage)
+    {
+        ViewAnimation1.image = _atomImage;
+        ViewAnimation2.image = _atomImage;
+        ViewAnimation3.image = _atomImage;
+        ViewAnimation4.image = _atomImage;
+    }
+    else if(_atomColor)
+    {
+        ViewAnimation1.backgroundColor = _atomColor;
+        ViewAnimation2.backgroundColor = _atomColor;
+        ViewAnimation3.backgroundColor = _atomColor;
+        ViewAnimation4.backgroundColor = _atomColor;
+    }
+    else
+    {
+        ViewAnimation1.backgroundColor = [UIColor whiteColor];
+        ViewAnimation2.backgroundColor = [UIColor whiteColor];
+        ViewAnimation3.backgroundColor = [UIColor whiteColor];
+        ViewAnimation4.backgroundColor = [UIColor whiteColor];
+    }
+
     
     ViewAnimation1.hidden = YES;
     
