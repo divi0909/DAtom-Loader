@@ -12,9 +12,17 @@
 
 @property(strong,nonatomic) UIImage *centerImage;
 
+@property(strong,nonatomic) UIImage *atomImage;
+
+@property(strong,nonatomic) UIColor *atomColor;
+
 +(DAtomLoader *)sharedInstance;
 
 -(void)setCenterImage:(UIImage *)yourImage;
+
+-(void)setAtomColor:(UIColor *)yourColor;
+
+-(void)setAtomImage:(UIImage *)atomImage;
 
 // Method for Atom View Animation
 -(void)starAnimation:(UIView *)superView;
